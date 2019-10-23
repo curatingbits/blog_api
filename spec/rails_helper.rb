@@ -10,6 +10,8 @@ ActiveRecord::Migration.maintain_test_schema!
 RSpec.configure do |config|
   config.use_transactional_fixtures = false
   config.include FactoryBot::Syntax::Methods
+  config.include(Shoulda::Matchers::ActiveModel, type: :model)
+  config.include(Shoulda::Matchers::ActiveRecord, type: :model)
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
   end
@@ -20,10 +22,10 @@ RSpec.configure do |config|
     DatabaseCleaner.strategy = :truncation
   end
   config.before(:each) do
-    DatabaseCleaner.start
+    # DatabaseCleaner.start
   end
   config.after(:each) do
-    DatabaseCleaner.clean
+    # DatabaseCleaner.clean
   end
   config.before(:all) do
     DatabaseCleaner.start
@@ -31,5 +33,6 @@ RSpec.configure do |config|
   config.after(:all) do
     DatabaseCleaner.clean
   end
+  config.include RequestSpecHelper
   config.infer_spec_type_from_file_location!
 end

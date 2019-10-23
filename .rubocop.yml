@@ -7,6 +7,7 @@ require:
 AllCops:
   Exclude:
     - bin/bundle
+    - db/schema.rb  
   # What version of Rails is the inspected code using?  If a value is specified
   # for TargetRailsVersion then it is used.  Acceptable values are specificed
   # as a float (i.e. 5.1); the patch version of Rails should not be included.
@@ -15,6 +16,7 @@ AllCops:
   # application.  If neither of those files exist, RuboCop will use Rails 5.0
   # as the default.
   TargetRailsVersion: '6.0.0' 
+
 
 Rails/ActionFilter:
   Description: 'Enforces consistent use of action filter methods.'
@@ -490,3 +492,5 @@ Rails/Validation:
   VersionChanged: '0.41'
   Include:
     - app/models/**/*.rb
+StringLiterals:
+  Enabled: false
