@@ -21,7 +21,9 @@ I considered, and have used, JSON serialization gems such as the popular  Active
 
  RSpec request test have been broken into separate spec files, that's my preference for readability. What's important, tests have been written. 
 
-`git clone https://github.com/curatingbits/blog_api.git`
+```
+git clone https://github.com/curatingbits/blog_api.git
+```
 
 `cd blog_api`
 
@@ -51,7 +53,9 @@ Rubocop linter has been configured as well.
 
  Send a GET request to the below endpoint to retrieve all blog posts.
  
- `/api/v1/blog_posts`
+ ```
+ /api/v1/blog_posts`
+ ```
  
 **GET one blog posts**
 
