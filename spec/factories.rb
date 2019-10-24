@@ -5,12 +5,6 @@ FactoryBot.define do
     name { Faker::Name.name }
     body { Faker::Lorem.paragraph }
     blog_post { nil }
-
-    factory :comments_with_blog_posts do
-      after(:create) do |comment|
-        create_list(:blog_post, 1, comment: comment)
-      end
-    end
   end
 
   factory :blog_post_author do
