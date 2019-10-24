@@ -1,26 +1,29 @@
+
 # blog_api
 ==========
 Blog API is a simple rails blog engine that allows for blog posts, blog post authors, and blog comments. Below documents the current endpoints and how to use basic CRUD to interact with the api.
 
 I've setup a heroku applicaiton for testing. Link provided below:
 
-`https://serene-woodland-61626.herokuapp.com/`
+[https://serene-woodland-61626.herokuapp.com/](https://serene-woodland-61626.herokuapp.com/)
 
 Link to retrieve all blog posts:
 
-`https://serene-woodland-61626.herokuapp.com/api/v1/blog_posts`
+```
+https://serene-woodland-61626.herokuapp.com/api/v1/blog_posts
+```
 
-Example JSON data is available in the postman_logs folder. From my understanding, for both PUT and DELETE, a no response code is returned. Therefor those logs are not supplied. I've read mixed suggestions regarding a 200 response status be sent back upon success.
+Example JSON data available in the postman_logs folder. For both PUT and DELETE, a no response code is returned. Logs are not provided for those endpoints. I've read mixed suggestions regarding a 200 response status be sent back upon success.
 
 Considerations:
 
-I considered, and have used, JSON serialization gems such as the popular  ActiveModel::Serializer. Upon further review, majority of these gems are not being maintained so I decided against it.
+ Due to lack of support from gem authors, ActiveModel::Serializer and gems like it were not used for blog_api.
 
 
 Installation
 ------------
 
- RSpec request test have been broken into separate spec files, that's my preference for readability. What's important, tests have been written.
+ RSpec request test have been broken into separate spec files. What's important, tests have been written.
 
 ```bash
 git clone https://github.com/curatingbits/blog_api.git
@@ -46,14 +49,16 @@ rake db:migrate
 ```bash
 To seed the database, use `rake db:seed`.
 ```
+
 ### Tests
+
 To run the RSpec test suite use the following command:
 
 ```bash
 rspec spec
 ```
 
-Rubocop linter has been configured as well.
+Rubocop linter has been configured.
 
 ```bash
 gem install rubocop
@@ -65,81 +70,87 @@ bundle exec rubocop
 
 ### Blog Post Endpoints
 
-**GET all blog posts**
+**`GET` - all BlogPost records**
 
- Send a GET request to the below endpoint to retrieve all blog posts.
+ > Send a GET request to the below endpoint to retrieve all BlogPost.
 
  ```
  /api/v1/blog_posts
  ```
 
-**GET one blog posts**
-```
+**`GET` - show BlogPost record**
+```ruby
 /api/v1/blog_posts/:id
 ```
-**GET a blog post and all associated comments**
+
+**GET - show BlogPost and all associated BlogPostComments**
+
+> This is a non CRUD action, retrieves a single BlogPost and all BlogPostComments
 
 ```
 /api/v1/blog_comments/:blog_post_id/blog_post_comments
 ```
 
 
-**POST to create a new blog post**
+**`POST` - create a new blog post**
 
 ```
 /api/v1/blog_posts
 ```
 
-> Because this particular application doesn't use authentication, you must supply blog_post_author_id of current author or blog_post_author_attributes to create a new author. If the author exists, the post will be associated to that given author. Authors example parameters are listed below.
+> Authentication has not been implemented, you must supply blog_post_author_id of current author or blog_post_author_attributes to create a new author. If the author exists, the post will find and associate the new post to the author. Authors example parameters are listed below.
 
 ```
 { blog_post: { title: 'test_title', body: 'test_body', blog_post_author_attributes: { name: "Duggan Roberts" } } }
 ```
 
-**PUT to update a blog post**
+**`PUT` - update blog post**
+
+```ruby
+/api/v1/blog_posts/:id
+```
 
 ```
-/api/v1/blog_postsi/:id
-```
-
  { { blog_post: { title: 'updated title for post } } }
+```
+ **DELETE - BlogPost record**
 
- **DELETE blog post**
-
- ```
+ ```ruby
  /api/v1/blog_post/:id
  ```
 
 ## BlogPostAuthor endpoints
 
-**GET all authors**
+**`GET` - all BlogPostAuthor**
 
 ```
 /api/v1/blog_post_authors
 ```
 
-**GET one author**
+**`GET` - show BlogPostAuthor record**
 
 ```
 /api/v1/blog_post_authors/1
 ```
 
-**GET all blogs pertaining to author**
+**`GET` - show BlogPost pertaining to BlogPostAuthor**
+
+> This is a non CRUD action that's available to retrieve a blog post pertaining to an blog_post_author
 
 ```
 /api/v1/blog_post_authors/:author_id/author_blog_posts
 ```
 
-This will return all blog post that are associated to a particular author
+**`GET` - list all BlogPostAuthor and the most current BlogPost record**
 
-**GET a list of all authors and their latest blog post**
+> This is a non CRUD action, retrieves a list of BlogPostAuthor and the most recent BlogPost
 
 ```
 /api/v1/blog_post_authors/authors_latest_post
 ```
 
 
-**POST to create new author**
+**`POST` - create BlogPostAuthor record**
 
 ```
 /api/v1/blog_post_authors
@@ -151,15 +162,19 @@ Example parameters:
 { blog_post_author: { name: 'Duggan Roberts' } }
 ```
 
-**PUT to update an author**
+**`PUT` - update BlogPostAuthor record**
 
 ```
-/api/v1/blog_post_authors/:id
+/api/v1/blog_post_authors
 ```
 
-Same params as POST
+Example parameters:
 
-**DELETE blog post author**
+```
+{ blog_post_author: { name: 'Duggan Roberts' } }
+```
+
+**`DELETE` - BlogPostAuthor record**
 
 ```
 /api/v1/blog_post_authors/:id
@@ -167,33 +182,32 @@ Same params as POST
 
 ## BlogComments enpoints
 
-**GET all comments**
+**`GET` - list of all BlogComment records**
 
 ```
 /api/v1/blog_comments
 ```
 
-**GET one comment**
+**`GET` - show BlogComment**
 
 ```
 /api/v1/blog_comments/:id
 ```
 
-**POST to create a new comment**
-
-Because comments are associated with a blog post, you need to supply a blog_post_id within the params.
+**`POST` - create new BlogComment record**
 
 ```
 /api/vi/blog_comments
 ```
+> Example parameters:
+> Because comments are associated with a blog post, you need to supply a blog_post_id.
 
-Example parameters:
 
 ```
 { blog_comment: { name: 'test_name', body: 'test_body', blog_post_id: post_id } }
 ```
 
-**PUT to update a comment**
+**`PUT` - update BlogComment record**
 
 `/api/v1/blog_comments/:id`
 
@@ -203,7 +217,7 @@ Example parameters provided below:
  { { blog_comment: { name: 'updated author name', body: 'updated body', blog_post_author_id: author.id } } }
  ```
 
- **DELETE blog comment**
+ **`DELETE` - BlogComment record**
 
  ```
  /api/v1/blog_comments/:id
