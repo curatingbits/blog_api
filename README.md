@@ -1,15 +1,45 @@
 # blog_api
----
-Blog API is a simple rails blog engine that allows for blog posts, blog post authors, and blog comments. Below documents the current endpoints and how to use basic CRUD endpoints to interact with the api.
+===
+Blog API is a simple rails blog engine that allows for blog posts, blog post authors, and blog comments. Below documents the current endpoints and how to use basic CRUD to interact with the api.
+
+Example JSON data is available in the postman_logs folder. From my understanding, for both PUT and DELETE, a no response code is returned. Therefor those logs are not supplied. I've read mixed suggestions regarding a 200 response status be sent back upon success. 
+
+### Setup Instruction
+
+ RSpec request test have been broken into separate spec files, that's my preference for readability. What's important, there are test. 
+
+`git clone https://github.com/curatingbits/blog_api.git`
+
+`cd blog_api`
+
+`bundle install`
+
+`rake db:create`
+
+`rake db:migrate`
+
+**optional**
+To seed the database with data, use `rake db:seed`.
+
+### Tests
+To run the RSpec test suite use the following command:
+
+`rspec spec`
+
+Rubocop linter has been configured as well.
+
+`gem install rubocop`
+
+`bundle exec rubocop`
 
 ### Blog Post Endpoints
 
 **GET all blog posts**
 
-Send a GET request to the below endpoint to retrieve all blog posts
-
-`/api/v1/blog_posts`
-
+ Send a GET request to the below endpoint to retrieve all blog posts.
+ 
+ `/api/v1/blog_posts`
+ 
 **GET one blog posts**
 
 `/api/v1/blog_posts/:id`
