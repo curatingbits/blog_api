@@ -87,9 +87,9 @@ bundle exec rubocop
 /api/v1/blog_posts/:id
 ```
 
-**GET - show BlogPost and all associated BlogPostComments**
+**`GET` - show BlogPost and all associated BlogPostComments**
 
-> This is a non CRUD action, retrieves a single BlogPost and all BlogPostComments
+> **This is a non CRUD action, retrieves a single BlogPost and all BlogPostComments**
 
 ```
 /api/v1/blog_comments/:blog_post_id/blog_post_comments
@@ -102,7 +102,7 @@ bundle exec rubocop
 /api/v1/blog_posts
 ```
 
-> Authentication has not been implemented, you must supply blog_post_author_id of current author or blog_post_author_attributes to create a new author. If the author exists, the post will find and associate the new post to the author. Authors example parameters are listed below.
+> Authentication has not been implemented, you must supply blog_post_author_id of a current author or blog_post_author_attributes with name to create a new author. If the author already exists, the post will find and associate the new post to the author. Authors example parameters are listed below.
 
 ```
 { blog_post: { title: 'test_title', body: 'test_body', blog_post_author_attributes: { name: "Duggan Roberts" } } }
