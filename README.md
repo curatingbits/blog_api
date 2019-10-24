@@ -1,7 +1,6 @@
-## blog_api
+# blog_api
 ---
-
-Blog API is a simple rails blog engine that allows for blog posts, blog post authors, and blog comments. Below outlines the current endpoints and how to use basic CRUD endpoints to interact with the api.
+Blog API is a simple rails blog engine that allows for blog posts, blog post authors, and blog comments. Below documents the current endpoints and how to use basic CRUD endpoints to interact with the api.
 
 ### Blog Post Endpoints
 
