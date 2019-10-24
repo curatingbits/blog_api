@@ -5,11 +5,13 @@ Blog_API is a simple api backend that allows for blog posts, blog post authors, 
 
 Below outlines how to use the CRUD endpoints for blog_api.
 
-Try blog_api out using the link below:
+Try blog_api out using the provided URL:
 
-[https://serene-woodland-61626.herokuapp.com/](https://serene-woodland-61626.herokuapp.com/)
+```
+https://serene-woodland-61626.herokuapp.com
+```
 
-Link to retrieve all blog posts:
+URL to retrieve all blog posts:
 
 ```
 https://serene-woodland-61626.herokuapp.com/api/v1/blog_posts
