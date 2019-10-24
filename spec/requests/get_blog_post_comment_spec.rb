@@ -3,8 +3,6 @@
 require 'rails_helper'
 
 describe 'GET request for blog_comment', type: :request do
-
-  let!(:blog_with_comments) { create_list(:blog_comments_with_blog_post, 1) }
   let!(:author) { create(:blog_post_author) }
   let!(:post) { create(:blog_post, blog_post_author_id: author.id) }
   let!(:comment) { create_list(:blog_comment, 20, blog_post_id: post.id) }
@@ -14,7 +12,7 @@ describe 'GET request for blog_comment', type: :request do
     before { get '/api/v1/blog_comments' }
 
     it 'returns all comments' do
-      expect(json.size).to eq(50)
+      expect(json.size).to eq(20)
     end
 
     it 'expects status code to reutrn 200' do
