@@ -1,9 +1,9 @@
 
 # blog_api
 
-Blog_API is a simple api backend that allows for blog posts, blog post authors, and blog comments.Authentication is not provided so anyone, or anything, can use the available CRUD endpoints :scream: . 
+Blog_API is a simple api backend that allows for blog posts, blog post authors, and blog comments. Authentication is not provided so anyone, or anything, can use the available CRUD endpoints :scream: .
 
-Below documents the current endpoints and how to use basic CRUD to interact with blog_api.
+Below outlines how to use the CRUD endpoints for blog_api.
 
 Try blog_api out using the link below:
 
@@ -94,7 +94,7 @@ bundle exec rubocop
 ```
 
 
-**`POST` - create a new blog post**
+**`POST` - create BlogPost record**
 
 ```
 /api/v1/blog_posts
@@ -106,7 +106,7 @@ bundle exec rubocop
 { blog_post: { title: 'test_title', body: 'test_body', blog_post_author_attributes: { name: "Duggan Roberts" } } }
 ```
 
-**`PUT` - update blog post**
+**`PUT` - update BlogPost record**
 
 ```ruby
 /api/v1/blog_posts/:id
@@ -123,7 +123,7 @@ bundle exec rubocop
 
 ## BlogPostAuthor endpoints
 
-**`GET` - all BlogPostAuthor**
+**`GET` - all BlogPostAuthor records**
 
 ```
 /api/v1/blog_post_authors
@@ -137,7 +137,7 @@ bundle exec rubocop
 
 **`GET` - show BlogPost pertaining to BlogPostAuthor**
 
-> This is a non CRUD action that's available to retrieve a blog post pertaining to BlogPostAuthor
+> **This is a non CRUD action that's available to retrieve a blog post pertaining to BlogPostAuthor**
 
 ```
 /api/v1/blog_post_authors/:author_id/author_blog_posts
@@ -145,7 +145,7 @@ bundle exec rubocop
 
 **`GET` - list all BlogPostAuthor and the most current BlogPost record**
 
-> This is a non CRUD action, retrieves a list of BlogPostAuthor and the most recent BlogPost
+> **This is a non CRUD action, retrieves a list of BlogPostAuthor and the most recent BlogPost**
 
 ```
 /api/v1/blog_post_authors/authors_latest_post
@@ -190,7 +190,7 @@ Example parameters:
 /api/v1/blog_comments
 ```
 
-**`GET` - show BlogComment**
+**`GET` - show BlogComment record**
 
 ```
 /api/v1/blog_comments/:id
