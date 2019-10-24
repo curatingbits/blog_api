@@ -1,5 +1,5 @@
 # blog_api
-===
+
 Blog API is a simple rails blog engine that allows for blog posts, blog post authors, and blog comments. Below documents the current endpoints and how to use basic CRUD to interact with the api.
 
 I've setup a heroku applicaiton for testing. Link provided below:
