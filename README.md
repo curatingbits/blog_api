@@ -1,9 +1,9 @@
 
 # blog_api
-==========
-Blog API is a simple rails blog engine that allows for blog posts, blog post authors, and blog comments. Below documents the current endpoints and how to use basic CRUD to interact with the api.
 
-I've setup a heroku applicaiton for testing. Link provided below:
+Blog_API is a simple blog api backend that allows for blog posts, blog post authors, and blog comments. Below documents the current endpoints and how to use basic CRUD to interact with blog_api.
+
+Try blog_api out using the link below:
 
 [https://serene-woodland-61626.herokuapp.com/](https://serene-woodland-61626.herokuapp.com/)
 
@@ -13,7 +13,7 @@ Link to retrieve all blog posts:
 https://serene-woodland-61626.herokuapp.com/api/v1/blog_posts
 ```
 
-Example JSON data available in the postman_logs folder. For both PUT and DELETE, a no response code is returned. Logs are not provided for those endpoints. I've read mixed suggestions regarding a 200 response status be sent back upon success.
+Example JSON data is available within the postman_logs folder. **For both PUT and DELETE, a no response code is returned**. Logs are not provided for those endpoints. There are mixed suggestions regarding is an 200 response status be sent back upon success.
 
 Considerations:
 
@@ -135,7 +135,7 @@ bundle exec rubocop
 
 **`GET` - show BlogPost pertaining to BlogPostAuthor**
 
-> This is a non CRUD action that's available to retrieve a blog post pertaining to an blog_post_author
+> This is a non CRUD action that's available to retrieve a blog post pertaining to BlogPostAuthor
 
 ```
 /api/v1/blog_post_authors/:author_id/author_blog_posts
