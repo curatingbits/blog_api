@@ -2,8 +2,8 @@
 
 FactoryBot.define do
   factory :blog_comment do
-    name { "MyString" }
-    body { "MyText" }
+    name { Faker::Name.name }
+    body { Faker::Lorem.paragraph }
     blog_post { nil }
 
     factory :comments_with_blog_posts do
