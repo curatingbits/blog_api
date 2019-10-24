@@ -22,18 +22,18 @@ describe 'POST /api/v1/blog_posts' do
     it 'returns a created status' do
       expect(response).to have_http_status(:created)
     end
-  end
 
-  context 'when request is invalid' do
-    let(:invalid_attributes) { { blog_post: { title: nil }, blog_post_author_attributes: { name: nil } } }
-    before { post '/api/v1/blog_posts', params: invalid_attributes }
+    context 'when request is invalid' do
+      let(:invalid_attributes) { { blog_post: { title: nil }, blog_post_author_attributes: { name: nil } } }
+      before { post '/api/v1/blog_posts', params: invalid_attributes }
 
-    it 'returns status code 422' do
-      expect(response).to have_http_status(422)
-    end
+      it 'returns status code 422' do
+        expect(response).to have_http_status(422)
+      end
 
-    it 'returns a validation failure message' do
-      expect(json['message']).to match(/Validation failed: Title can't be blank, Blog post author must exist/)
+      it 'returns a validation failure message' do
+        expect(json['message']).to match(/Validation failed: Title can't be blank, Blog post author must exist/)
+      end
     end
   end
 end

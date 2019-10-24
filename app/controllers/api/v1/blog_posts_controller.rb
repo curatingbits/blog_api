@@ -4,7 +4,7 @@ module Api
   module V1
     # BlogPosts Controller class handles all CRUD endpoints
     class BlogPostsController < ApplicationController
-      before_action :set_blog_post, only: %i[show update destroy]
+      before_action :set_blog_post, only: %i[show update destroy blog_post_comments]
       def index
         @posts = BlogPost.all
         json_response(@posts)
@@ -12,6 +12,10 @@ module Api
 
       def show
         json_response(@blog_post)
+      end
+
+      def blog_post_comments
+        render json: @blog_post.to_json(include: :blog_comment)
       end
 
       def create
@@ -32,7 +36,7 @@ module Api
       private
 
       def set_blog_post
-         @blog_post = BlogPost.find(params[:id])
+        @blog_post = BlogPost.find(params[:id])
       end
 
       def blog_post_params

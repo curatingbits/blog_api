@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 # BlogPost Model
-
 class BlogPost < ApplicationRecord
-  validates_presence_of :title
+  validates :title, presence: true
   belongs_to :blog_post_author
+  has_many :blog_comment, dependent: :destroy
   accepts_nested_attributes_for :blog_post_author, update_only: true
 
   def blog_post_author_attributes=(value)

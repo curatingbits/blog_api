@@ -17,6 +17,8 @@ AllCops:
   # as the default.
   TargetRailsVersion: '6.0.0' 
 
+Metrics/BlockLength:
+  Enabled: false
 
 Rails/ActionFilter:
   Description: 'Enforces consistent use of action filter methods.'

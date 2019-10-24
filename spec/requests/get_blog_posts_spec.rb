@@ -3,9 +3,9 @@
 require 'rails_helper'
 
 describe 'GET requests for rails_api', type: :request do
-  let!(:posts) { FactoryBot.create_list(:blog_post_author_with_blog_post, 1) }
+  let!(:author) { create(:blog_post_author) }
+  let!(:posts) { create_list(:blog_post, 20, blog_post_author_id: author.id) }
   let!(:post_id) { posts.first.id }
-
   describe 'GET all blog_posts /api/v1/blog_posts' do
     before { get '/api/v1/blog_posts' }
 
@@ -18,7 +18,7 @@ describe 'GET requests for rails_api', type: :request do
     end
   end
 
-  describe 'GET /api/v1/blog_posts/:id' do
+  describe 'GET /api/v1/blog_posts/:id', type: :request do
     before { get "/api/v1/blog_posts/#{post_id}" }
 
     context 'when the record exists' do
