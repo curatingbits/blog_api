@@ -1,7 +1,9 @@
 
 # blog_api
 
-Blog_API is a simple blog api backend that allows for blog posts, blog post authors, and blog comments. Below documents the current endpoints and how to use basic CRUD to interact with blog_api.
+Blog_API is a simple api backend that allows for blog posts, blog post authors, and blog comments.Authentication is not provided so anyone, or anything, can use the available CRUD endpoints :scream: . 
+
+Below documents the current endpoints and how to use basic CRUD to interact with blog_api.
 
 Try blog_api out using the link below:
 
@@ -13,7 +15,7 @@ Link to retrieve all blog posts:
 https://serene-woodland-61626.herokuapp.com/api/v1/blog_posts
 ```
 
-Example JSON data is available within the postman_logs folder. **For both PUT and DELETE, a no response code is returned**. Logs are not provided for those endpoints. There are mixed suggestions regarding is an 200 response status be sent back upon success.
+Example JSON data is available within the postman_logs folder. **For both PUT and DELETE, a no response code is returned**. Logs are not provided for those endpoints. There are mixed suggestions regarding is an 200 response status needs to be sent back upon success.
 
 Considerations:
 
