@@ -72,7 +72,7 @@ gem install rubocop
 bundle exec rubocop
 ```
 
-### Blog Post Endpoints
+## BlogPost Endpoints
 
 **`GET` - all BlogPost records**
 
@@ -184,7 +184,7 @@ Example parameters:
 /api/v1/blog_post_authors/:id
 ```
 
-## BlogComments enpoints
+## BlogComments endpoints
 
 **`GET` - list of all BlogComment records**
 
