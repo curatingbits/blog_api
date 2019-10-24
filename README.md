@@ -3,7 +3,7 @@
 
 Blog_API is a simple api backend that allows for blog posts, blog post authors, and blog comments. Authentication is not provided so anyone, or anything, can use the available CRUD endpoints :scream: .
 
-Below outlines how to use the CRUD endpoints for blog_api.
+Below outlines how to setup and use blog_api.
 
 Try blog_api out using the provided URL:
 
