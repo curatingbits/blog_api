@@ -17,7 +17,7 @@ URL to retrieve all blog posts:
 https://serene-woodland-61626.herokuapp.com/api/v1/blog_posts
 ```
 
-Example JSON data is available within the postman_logs folder. **For both PUT and DELETE, a no response code is returned**. Logs are not provided for those endpoints. There are mixed suggestions regarding is an 200 response status needs to be sent back upon success.
+Example JSON data is available within the postman_logs folder. **For both PUT and DELETE, a no response code is returned**. Logs are not provided for those endpoints. There are mixed suggestions if a 200 status (ok) is necessary.
 
 Considerations:
 
