@@ -2,7 +2,20 @@
 ===
 Blog API is a simple rails blog engine that allows for blog posts, blog post authors, and blog comments. Below documents the current endpoints and how to use basic CRUD to interact with the api.
 
-Example JSON data is available in the postman_logs folder. From my understanding, for both PUT and DELETE, a no response code is returned. Therefor those logs are not supplied. I've read mixed suggestions regarding a 200 response status be sent back upon success. 
+I've setup a heroku applicaiton for testing. Link provided below:
+
+`https://serene-woodland-61626.herokuapp.com/`
+
+Link to retrieve all blog posts:
+
+`https://serene-woodland-61626.herokuapp.com/api/v1/blog_posts`
+
+Example JSON data is available in the postman_logs folder. From my understanding, for both PUT and DELETE, a no response code is returned. Therefor those logs are not supplied. I've read mixed suggestions regarding a 200 response status be sent back upon success.
+
+Considerations:
+
+I considered, and have used, JSON serialization gems such as the popular  ActiveModel::Serializer. Upon further review, majority of these gems are not being maintained so I decided against it.
+
 
 ### Setup Instruction
 
@@ -53,7 +66,7 @@ Rubocop linter has been configured as well.
 
 `/api/v1/blog_posts`
 
-Because this particular application doesn't use authentication, you must supply blog_post_author_id of current author or blog_post_author_attributes to create a new author. Example parameters are listed below.
+> Because this particular application doesn't use authentication, you must supply blog_post_author_id of current author or blog_post_author_attributes to create a new author. If the author exists, the post will be associated to that given author. Authors example parameters are listed below.
 
 `{ blog_post: { title: 'test_title', body: 'test_body', blog_post_author_attributes: { name: "Duggan Roberts" } } }`
 
