@@ -2,6 +2,8 @@
 
 require 'rails_helper'
 describe 'GET requests for blog_post_author', type: :request do
+  # Mass assignment of 20 blogs per author
+  let!(:author_blog) { create_list(:blog_post_author_with_blog_post, 1) }
   let!(:author) { create_list(:blog_post_author, 5) }
   let!(:author_id) { author.first.id }
 
@@ -9,7 +11,7 @@ describe 'GET requests for blog_post_author', type: :request do
     before { get '/api/v1/blog_post_authors' }
 
     it 'returns all authors' do
-      expect(json.size).to eq(5)
+      expect(json.size).to eq(6)
     end
 
     it 'expects status code to return 200' do
