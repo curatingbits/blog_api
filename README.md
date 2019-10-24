@@ -19,7 +19,7 @@ I considered, and have used, JSON serialization gems such as the popular  Active
 
 ### Setup Instruction
 
- RSpec request test have been broken into separate spec files, that's my preference for readability. What's important, there are test. 
+ RSpec request test have been broken into separate spec files, that's my preference for readability. What's important, tests have been written. 
 
 `git clone https://github.com/curatingbits/blog_api.git`
 
