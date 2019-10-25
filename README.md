@@ -48,6 +48,11 @@ rake db:create
 ```bash
 rake db:migrate
 ```
+Start the server
+
+```
+rails s
+```
 
 **optional**
 ```bash
@@ -117,7 +122,7 @@ bundle exec rubocop
 ```
  { { blog_post: { title: 'updated title for post } } }
 ```
- **DELETE - BlogPost record**
+ **`DELETE` - BlogPost record**
 
  ```ruby
  /api/v1/blog_post/:id
