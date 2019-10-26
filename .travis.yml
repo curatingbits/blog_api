@@ -11,5 +11,5 @@ script:
   - bundle exec rspec spec/
 before_script:
   - cp config/database.travis.yml config/database.yml
-  - psql -e 'create database travis_ci_test'
+  - psql -c 'create database travis_ci_test' -U postgres
 bundler_args: --binstubs=./bundler_stubs

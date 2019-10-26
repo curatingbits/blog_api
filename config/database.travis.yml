@@ -1,5 +1,5 @@
 default: &default
-  adapter: travis_ci_test 
+  adapter: postgresql 
 test:
   <<: *default
   database: travis_ci_test
